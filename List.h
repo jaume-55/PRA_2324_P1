@@ -1,11 +1,16 @@
 #ifndef LIST_H
 #define LIST_H
 
-#include <stdexcept> // Para std::out_of_range
+#include <stdexcept>  // para std::out_of_range
 
+// Clase genérica e interfaz abstracta pura
 template <typename T>
 class List {
 public:
+    // Destructor virtual para asegurar destrucción correcta en clases derivadas
+    virtual ~List() {}
+
+    // Métodos virtuales puros
     virtual void insert(int pos, T e) = 0;
     virtual void append(T e) = 0;
     virtual void prepend(T e) = 0;
@@ -14,9 +19,7 @@ public:
     virtual int search(T e) const = 0;
     virtual bool empty() const = 0;
     virtual int size() const = 0;
-
-    // Destructor virtual para asegurar destrucciÃ³n correcta de objetos derivados
-    virtual ~List() {}
 };
 
 #endif
+
